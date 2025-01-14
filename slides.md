@@ -1,8 +1,9 @@
 ---
-theme: default
-background: https://cover.sli.dev
+theme: seriph
+background: /assets/bg-vertical-1.jpg
 title: Let's talk about TypeScript
 class: text-center
+transition: slide-left
 mdc: true
 ---
 
@@ -13,39 +14,80 @@ Son Nguyen - SMB Engineering Dublin
 <!-- Sample note here -->
 
 ---
+layout: center
+---
 
-## TypeScript usage in Centro
+<h2 class="text-center mb-8">
+📃 Table of content
+</h2>
+
+<Toc maxDepth="1" />
+
+---
+layout: cover
+background: /assets/bg-horizontal-1.jpg
+---
+
+<div class="m-0">Section 1</div>
+
+# TypeScript usage in Centro
+
+---
+layout: image-right
+image: /assets/bg-vertical-2.jpg
+---
+
+Two versions are being used: <span v-mark.circle.red>4.2.3</span> (default) and <span v-mark.circle.red>5.4.5</span>
+
+Modules are encouraged to upgrade
+
+⚡ Performance gain
+<br />
+🪶 Minimal effort
+<br />
+📦 Better support for packages, e.g. Fluent UI
+
+---
+layout: fact
+---
+
+<div class="flex justify-center gap-32 mx-auto">
+  <div class="text-center max-w-[200px]">
+    <div class="text-[80px]">54%</div>
+    <div>Reduced compile time for Settings module (from 69 to 32 seconds)</div>
+  </div>
+  <div class="text-center max-w-[200px]">
+    <div class="text-[80px]">38%</div>
+    <div>Reduced type checking time for <code>host-hvc-harness</code></div>
+  </div>
+</div>
 
 ---
 
-- Two versions are being used: _4.2.3_ (default) and _5.4.5_
-- Modules are encouraged to upgrade
-  - ⚡ Performance gain
-  - 🪶 Minimal effort
-  - 📦 Better support for packages, e.g. Fluent UI
+## How to upgrade
 
----
-
-- Compile time reduced for Settings module: 69 -> 32 seconds (<50%>)
-- Type checking time for host-hvc-harness reduced by 38%
-
----
-
-How to upgrade
+Find detailed instruction in this email
 
 ![TypeScript upgrade instruction for Centro modules](/assets/upgrade-typescript-in-centro.png)
 
 ---
+layout: cover
+background: /assets/bg-horizontal-2.jpg
+---
 
-## New features in TypeScript 5.4.5
+<div class="m-0">Section 2</div>
 
+# New features in TypeScript 5.4.5
+
+<!--
 Curated list of most relevant features you can use (once updated)
 
 Overall theme: refinement, makes TS smarter and work as you would expect. Add support for edge/complex cases (usage with abstract classes, getter/setter)
+-->
 
 ---
 
-### Template String Type Improvements
+## Template String Type Improvements
 
 Actually you can use it today!
 
@@ -70,19 +112,26 @@ s1 = s2;
 
 ---
 
-### Import Statement Completions
+## Import Statement Completions
 
+Make importing easier in VS Code.
+
+<img src="/assets/features-4-3-auto-import-statement.gif" alt="Visual Studio Code import auto completion" class="w-128 mx-auto">
 ![Visual Studio Code import auto completion](/assets/features-4-3-auto-import-statement.gif)
 
 ---
 
-### Inlay Hints
+## Inlay Hints
+
+Add helpful type annotations and argument names.
 
 ![Visual Studio Code inlay hints](/assets/features-4-4-vscode-inlay-hints.png)
 
 ---
 
-### The `Awaited` Type and Promise Improvements
+## The `Awaited` Type and Promise Improvements
+
+New utility type to unwrap `Promise` types.
 
 ```ts
 // A = string
@@ -97,7 +146,9 @@ type C = Awaited<boolean | Promise<number>>;
 
 ---
 
-### The `satisfies` Operator
+## The `satisfies` Operator
+
+Make type inference a little smarter.
 
 ````md magic-move
 ```ts
@@ -129,7 +180,9 @@ palette.green; // type: string
 
 ---
 
-### "Remove Unused Imports" and "Sort Imports" Commands for Editors
+## "Remove Unused Imports" and "Sort Imports" Commands for Editors
+
+Use these commands to organize your imports.
 
 ![Visual Studio Code TypeScript imports actions](/assets/features-4-9-vscode-imports-actions.png)
 
@@ -138,7 +191,9 @@ layout: two-cols-header
 layoutClass: gap-2
 ---
 
-### Decorators
+## Decorators
+
+Easily enhance functions and methods.
 
 ::left::
 
@@ -189,13 +244,13 @@ layout: two-cols-header
 layoutClass: gap-4
 ---
 
-### `using` Declarations and Explicit Resource Management
+## `using` Declarations and Explicit Resource Management
 
 ::left::
 
-#### Before
+Before
 
-```ts
+```ts {*|11-16|*}
 function doSomeWork() {
   const path = ".some_temp_file";
   const file = fs.openSync(path, "w+");
@@ -217,9 +272,9 @@ function doSomeWork() {
 
 ::right::
 
-#### After
+After
 
-```ts
+```ts {*|2|*}
 function doSomeWork() {
   using file = new TempFile(".some_temp_file");
   // use file...
@@ -230,7 +285,7 @@ function doSomeWork() {
 }
 ```
 
-```ts
+```ts {*|7-10|*}
 class TempFile implements Disposable {
   constructor(private path: string) {
     this.handle = fs.openSync(path, "w+");
@@ -246,12 +301,19 @@ class TempFile implements Disposable {
 ```
 
 ---
+layout: cover
+background: /assets/bg-horizontal-3.jpg
+---
 
-## Some common mistakes with TypeScript usage
+<div class="m-0">Section 3</div>
+
+# Some common mistakes with TypeScript usage
 
 ---
 
-### Type assertions where type annotations should be used instead
+## Type assertions where type annotations should be used instead
+
+Type annotations can be much safer and more helpful.
 
 ````md magic-move
 ```ts
@@ -315,7 +377,7 @@ layout: two-cols-header
 layoutClass: gap-4
 ---
 
-### Not using `unknown` to type thrown error
+## Not using `unknown` to type thrown error
 
 In JS/TS, *anything* can be thrown from *anywhere*, so an error may not be what you prepare to catch.
 
@@ -352,11 +414,11 @@ try {
 ```
 ````
 
-<!-- `any` and `unknown` are both used for unknown types, but different in semantic and usage. Use `any` when you want to skip type checking (not recommended), and `unknown` when you want to enforce type checking before accessing a value for safety -->
-
 ---
 
-### Difference between `any` and `unknown`
+## Difference between `any` and `unknown`
+
+They can seem similar, but there are subtle differences.
 
 ```ts twoslash
 let foo: any
@@ -366,9 +428,12 @@ let bar: unknown
 bar.hello()
 ```
 
+<!-- `any` and `unknown` are both used for unknown types, but different in semantic and usage. Use `any` when you want to skip type checking (not recommended), and `unknown` when you want to enforce type checking before accessing a value for safety -->
+
+
 ---
 
-### Not typing deferred components
+## Not typing deferred components
 
 If you forget to type a deferred component's props, it will be `any` and all the sweet TypeScript safety is gone.
 
@@ -391,12 +456,17 @@ export const DeferredComponent = deferred<Props>('Component', () => moduleRef('.
 ````
 
 ---
+layout: cover
+background: /assets/bg-horizontal-4.jpg
+---
 
-## Bonus: New JS features you might have missed
+<div class="m-0">Section 4</div>
+
+# Bonus: New JS features you might have missed
 
 ---
 
-### Top level `await`
+## Top level `await`
 
 `await` can now exist outside of an `async` function (top level only).
 
@@ -424,7 +494,7 @@ setUser();
 
 ---
 
-### Private instance properties
+## Private instance properties
 
 Let's say we want to make `age` a private property.
 
@@ -485,7 +555,7 @@ person.#age; // JavaScript will throw a SyntaxError ✅
 
 ---
 
-### `Array.findLast()`, `Array.findLastIndex()`, `Array.at()`
+## `Array.findLast()`, `Array.findLastIndex()`, `Array.at()`
 
 New handy array methods.
 
@@ -503,7 +573,7 @@ array.at(-1); // 44
 
 ---
 
-### Copying Array Methods
+## Copying Array Methods
 
 Methods that return a new array instead of mutating the old one.
 
@@ -525,7 +595,7 @@ array.with(0, 42);
 
 ---
 
-### `??` operator
+## `??` operator
 
 Prevent unexpected fallback values.
 
@@ -549,7 +619,7 @@ const payload = {
 
 ---
 
-### Numeric separator
+## Numeric separator
 
 Make numbers easier to read.
 
@@ -563,7 +633,7 @@ let num2 = 1_000_000_000;
 
 ---
 
-### Deep object copy
+## Deep object copy
 
 A performant way to deep copy an object.
 
@@ -576,3 +646,12 @@ const copy1 = JSON.parse(JSON.stringify(obj));
 // This is fast
 const copy2 = structuredClone(obj);
 ```
+
+---
+layout: cover
+background: /assets/bg-horizontal-5.jpg
+---
+
+# Thank you for the discussion!
+
+Feedback is welcome, and next topics are encouraged.
