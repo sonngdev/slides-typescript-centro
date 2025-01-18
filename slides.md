@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: /assets/bg-vertical-1.jpg
+background: /bg-vertical-1.jpg
 title: Let's talk about TypeScript
 class: text-center
 transition: slide-left
@@ -25,7 +25,7 @@ layout: center
 
 ---
 layout: cover
-background: /assets/bg-horizontal-1.jpg
+background: /bg-horizontal-1.jpg
 ---
 
 <div class="m-0">Section 1</div>
@@ -34,7 +34,7 @@ background: /assets/bg-horizontal-1.jpg
 
 ---
 layout: image-right
-image: /assets/bg-vertical-2.jpg
+image: /bg-vertical-2.jpg
 ---
 
 Two versions are being used: <span v-mark.circle.red>4.2.3</span> (default) and <span v-mark.circle.red>5.4.5</span>
@@ -68,11 +68,11 @@ layout: fact
 
 Find detailed instruction in this email
 
-![TypeScript upgrade instruction for Centro modules](/assets/upgrade-typescript-in-centro.png)
+![TypeScript upgrade instruction for Centro modules](/upgrade-typescript-in-centro.png)
 
 ---
 layout: cover
-background: /assets/bg-horizontal-2.jpg
+background: /bg-horizontal-2.jpg
 ---
 
 <div class="m-0">Section 2</div>
@@ -116,8 +116,8 @@ s1 = s2;
 
 Make importing easier in VS Code.
 
-<img src="/assets/features-4-3-auto-import-statement.gif" alt="Visual Studio Code import auto completion" class="w-128 mx-auto">
-![Visual Studio Code import auto completion](/assets/features-4-3-auto-import-statement.gif)
+<img src="/features-4-3-auto-import-statement.gif" alt="Visual Studio Code import auto completion" class="w-128 mx-auto">
+![Visual Studio Code import auto completion](/features-4-3-auto-import-statement.gif)
 
 ---
 
@@ -125,7 +125,7 @@ Make importing easier in VS Code.
 
 Add helpful type annotations and argument names.
 
-![Visual Studio Code inlay hints](/assets/features-4-4-vscode-inlay-hints.png)
+![Visual Studio Code inlay hints](/features-4-4-vscode-inlay-hints.png)
 
 ---
 
@@ -184,7 +184,7 @@ palette.green; // type: string
 
 Use these commands to organize your imports.
 
-![Visual Studio Code TypeScript imports actions](/assets/features-4-9-vscode-imports-actions.png)
+![Visual Studio Code TypeScript imports actions](/features-4-9-vscode-imports-actions.png)
 
 ---
 layout: two-cols-header
@@ -302,7 +302,7 @@ class TempFile implements Disposable {
 
 ---
 layout: cover
-background: /assets/bg-horizontal-3.jpg
+background: /bg-horizontal-3.jpg
 ---
 
 <div class="m-0">Section 3</div>
@@ -457,7 +457,7 @@ export const DeferredComponent = deferred<Props>('Component', () => moduleRef('.
 
 ---
 layout: cover
-background: /assets/bg-horizontal-4.jpg
+background: /bg-horizontal-4.jpg
 ---
 
 <div class="m-0">Section 4</div>
@@ -649,7 +649,7 @@ const copy2 = structuredClone(obj);
 
 ---
 layout: cover
-background: /assets/bg-horizontal-5.jpg
+background: /bg-horizontal-5.jpg
 ---
 
 # Thank you for the discussion!
