@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: /bg-vertical-1.jpg
+background: https://cover.sli.dev
 title: Let's talk about TypeScript
 class: text-center
 transition: slide-left
@@ -25,7 +25,7 @@ layout: center
 
 ---
 layout: cover
-background: /bg-horizontal-1.jpg
+background: https://cover.sli.dev
 ---
 
 <div class="m-0">Section 1</div>
@@ -34,7 +34,7 @@ background: /bg-horizontal-1.jpg
 
 ---
 layout: image-right
-image: /bg-vertical-2.jpg
+image: https://cover.sli.dev
 ---
 
 Two versions are being used: <span v-mark.circle.red>4.2.3</span> (default) and <span v-mark.circle.red>5.4.5</span>
@@ -72,7 +72,7 @@ Find detailed instruction in this email
 
 ---
 layout: cover
-background: /bg-horizontal-2.jpg
+background: https://cover.sli.dev
 ---
 
 <div class="m-0">Section 2</div>
@@ -151,7 +151,7 @@ type C = Awaited<boolean | Promise<number>>;
 Make type inference a little smarter.
 
 ````md magic-move
-```ts
+```ts{*|9-10}
 type RGB = [red: number, green: number, blue: number];
 
 const palette: Record<string, string | RGB> = {
@@ -164,7 +164,7 @@ palette.red; // type: string | RGB
 palette.green; // type: string | RGB
 ```
 
-```ts
+```ts{*|9-10}
 type RGB = [red: number, green: number, blue: number];
 
 const palette = {
@@ -302,7 +302,7 @@ class TempFile implements Disposable {
 
 ---
 layout: cover
-background: /bg-horizontal-3.jpg
+background: https://cover.sli.dev
 ---
 
 <div class="m-0">Section 3</div>
@@ -457,7 +457,7 @@ export const DeferredComponent = deferred<Props>('Component', () => moduleRef('.
 
 ---
 layout: cover
-background: /bg-horizontal-4.jpg
+background: https://cover.sli.dev
 ---
 
 <div class="m-0">Section 4</div>
@@ -649,7 +649,7 @@ const copy2 = structuredClone(obj);
 
 ---
 layout: cover
-background: /bg-horizontal-5.jpg
+background: https://cover.sli.dev
 ---
 
 # Thank you for the discussion!
