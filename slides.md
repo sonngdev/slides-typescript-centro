@@ -1,13 +1,13 @@
 ---
 theme: seriph
-background: https://cover.sli.dev
-title: Let's talk about TypeScript
+background: /bg.jpeg
+title: 4 reasons you want to update TypeScript
 class: text-center
 transition: slide-left
 mdc: true
 ---
 
-# 4 reasons you want to <br /> update TypeScript
+# 4 reasons you want to update TypeScript
 
 Son Nguyen - SMB Engineering Dublin
 
@@ -25,12 +25,12 @@ layout: center
 
 ---
 layout: cover
-background: https://cover.sli.dev
+background: /bg.jpeg
 ---
 
 <div class="m-0">Reason 1</div>
 
-# Alignment with other <br /> Centro modules
+# Alignment with other Centro modules
 
 ---
 layout: image-right
@@ -57,12 +57,12 @@ Find detailed instruction in this email
 
 ---
 layout: cover
-background: https://cover.sli.dev
+background: /bg.jpeg
 ---
 
 <div class="m-0">Reason 2</div>
 
-# Improved performance <br /> and code safety
+# Improved performance and code safety
 
 ---
 layout: fact
@@ -81,7 +81,7 @@ layout: fact
 
 ---
 layout: cover
-background: https://cover.sli.dev
+background: /bg.jpeg
 ---
 
 <div class="m-0">Reason 3</div>
@@ -115,7 +115,7 @@ Use these commands to organize your imports.
 
 ---
 layout: cover
-background: https://cover.sli.dev
+background: /bg.jpeg
 ---
 
 <div class="m-0">Reason 4</div>
@@ -124,12 +124,12 @@ background: https://cover.sli.dev
 
 ---
 layout: cover
-background: https://cover.sli.dev
+background: /bg.jpeg
 ---
 
-<div class="m-0">Bonus 1</div>
+<div class="m-0">Bonus</div>
 
-# Common opportunities for <br /> better TypeScript usage
+# Extra: Common opportunities for better TypeScript usage
 
 ---
 
@@ -313,12 +313,12 @@ export const DeferredComponent = deferred<Props>('Component', () => moduleRef('.
 
 ---
 layout: cover
-background: https://cover.sli.dev
+background: /bg.jpeg
 ---
 
-<div class="m-0">Bonus 2</div>
+<div class="m-0">Bonus</div>
 
-# Cool new JS and TS features
+# Extra: Cool new JS and TS features
 
 <!--
 Curated list of most relevant features you can use (once updated)
@@ -667,7 +667,7 @@ const copy2 = structuredClone(obj);
 
 ---
 layout: cover
-background: https://cover.sli.dev
+background: /bg.jpeg
 ---
 
 # Thank you for the discussion!
