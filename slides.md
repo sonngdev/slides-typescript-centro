@@ -33,51 +33,6 @@ background: https://cover.sli.dev
 # Alignment with other <br /> Centro modules
 
 ---
-layout: cover
-background: https://cover.sli.dev
----
-
-<div class="m-0">Reason 2</div>
-
-# Improved performance <br /> and code safety
-
----
-layout: cover
-background: https://cover.sli.dev
----
-
-<div class="m-0">Reason 3</div>
-
-# Increased developer productivity
-
----
-layout: cover
-background: https://cover.sli.dev
----
-
-<div class="m-0">Reason 4</div>
-
-# Better community and support
-
----
-layout: cover
-background: https://cover.sli.dev
----
-
-<div class="m-0">Bonus 1</div>
-
-# Common opportunities for <br /> better TypeScript usage
-
----
-layout: cover
-background: https://cover.sli.dev
----
-
-<div class="m-0">Bonus 2</div>
-
-# Cool new JS and TS features
-
----
 layout: image-right
 image: https://cover.sli.dev
 ---
@@ -91,6 +46,23 @@ Modules are encouraged to upgrade
 🪶 Minimal effort
 <br />
 📦 Better support for packages, e.g. Fluent UI
+
+---
+
+## How to upgrade
+
+Find detailed instruction in this email
+
+![TypeScript upgrade instruction for Centro modules](/upgrade-typescript-in-centro.png)
+
+---
+layout: cover
+background: https://cover.sli.dev
+---
+
+<div class="m-0">Reason 2</div>
+
+# Improved performance <br /> and code safety
 
 ---
 layout: fact
@@ -108,52 +80,13 @@ layout: fact
 </div>
 
 ---
-
-## How to upgrade
-
-Find detailed instruction in this email
-
-![TypeScript upgrade instruction for Centro modules](/upgrade-typescript-in-centro.png)
-
----
 layout: cover
 background: https://cover.sli.dev
 ---
 
-<div class="m-0">Section 2</div>
+<div class="m-0">Reason 3</div>
 
-# New features in TypeScript 5.4.5
-
-<!--
-Curated list of most relevant features you can use (once updated)
-
-Overall theme: refinement, makes TS smarter and work as you would expect. Add support for edge/complex cases (usage with abstract classes, getter/setter)
--->
-
----
-
-## Template String Type Improvements
-
-Actually you can use it today!
-
-```ts
-type VerticalPosition = "Top" | "Bottom";
-type HorizontalPosition = "Left" | "Right";
-
-// "TopLeft" | "TopRight" | "BottomLeft" | "BottomRight"
-type Position = `${VerticalPosition}${HorizontalPosition}`;
-```
-
-Compatible types
-
-```ts
-declare let s1: `${number}-${number}-${number}`;
-declare let s2: `1-2-3`;
-
-// TypeScript recognizes that s2 is compatible with s1,
-// therefore s1 can be assigned to s2's value
-s1 = s2;
-```
+# Increased developer productivity
 
 ---
 
@@ -174,20 +107,29 @@ Add helpful type annotations and argument names.
 
 ---
 
-## The `Awaited` Type and Promise Improvements
+## "Remove Unused Imports" and "Sort Imports" Commands for Editors
 
-New utility type to unwrap `Promise` types.
+Use these commands to organize your imports.
 
-```ts
-// A = string
-type A = Awaited<Promise<string>>;
+![Visual Studio Code TypeScript imports actions](/features-4-9-vscode-imports-actions.png)
 
-// B = number
-type B = Awaited<Promise<Promise<number>>>;
+---
+layout: cover
+background: https://cover.sli.dev
+---
 
-// C = boolean | number
-type C = Awaited<boolean | Promise<number>>;
-```
+<div class="m-0">Reason 4</div>
+
+# Better community and support
+
+---
+layout: cover
+background: https://cover.sli.dev
+---
+
+<div class="m-0">Bonus 1</div>
+
+# Common opportunities for <br /> better TypeScript usage
 
 ---
 
@@ -222,137 +164,6 @@ palette.red; // type: RGB
 palette.green; // type: string
 ```
 ````
-
----
-
-## "Remove Unused Imports" and "Sort Imports" Commands for Editors
-
-Use these commands to organize your imports.
-
-![Visual Studio Code TypeScript imports actions](/features-4-9-vscode-imports-actions.png)
-
----
-layout: two-cols-header
-layoutClass: gap-2
----
-
-## Decorators
-
-Easily enhance functions and methods.
-
-::left::
-
-```ts
-class Person {
-  constructor(private name: string) {}
-
-  @loggedMethod("⚠️")
-  greet() {
-    console.log(`Hello, my name is ${this.name}.`);
-  }
-}
-
-const p = new Person("Ron");
-p.greet();
-
-// Output:
-//
-//   ⚠️ Entering method 'greet'.
-//   Hello, my name is Ron.
-//   ⚠️ Exiting method 'greet'.
-```
-
-::right::
-
-```ts
-function loggedMethod(prefix = "LOG:") {
-  return function actualDecorator(
-    originalMethod: any,
-    context: ClassMethodDecoratorContext
-  ) {
-    const methodName = String(context.name);
-
-    function replacementMethod(this: any, ...args: any[]) {
-      console.log(`${prefix} Entering method '${methodName}'.`);
-      const result = originalMethod.call(this, ...args);
-      console.log(`${prefix} Exiting method '${methodName}'.`);
-      return result;
-    }
-
-    return replacementMethod;
-  };
-}
-```
-
----
-layout: two-cols-header
-layoutClass: gap-4
----
-
-## `using` Declarations and Explicit Resource Management
-
-::left::
-
-Before
-
-```ts {*|11-16|*}
-function doSomeWork() {
-  const path = ".some_temp_file";
-  const file = fs.openSync(path, "w+");
-
-  try {
-    // use file...
-
-    if (someCondition()) {
-      // do some more work...
-      return;
-    }
-  } finally {
-    // Close the file and delete it.
-    fs.closeSync(file);
-    fs.unlinkSync(path);
-  }
-}
-```
-
-::right::
-
-After
-
-```ts {*|2|*}
-function doSomeWork() {
-  using file = new TempFile(".some_temp_file");
-  // use file...
-  if (someCondition()) {
-    // do some more work...
-    return;
-  }
-}
-```
-
-```ts {*|7-10|*}
-class TempFile implements Disposable {
-  constructor(private path: string) {
-    this.handle = fs.openSync(path, "w+");
-  }
-
-  // other methods
-
-  [Symbol.dispose]() {
-    fs.closeSync(this.handle);
-    fs.unlinkSync(this.path);
-  }
-}
-```
-
----
-layout: cover
-background: https://cover.sli.dev
----
-
-<div class="m-0">Section 3</div>
-
-# Some common mistakes with TypeScript usage
 
 ---
 
@@ -505,9 +316,171 @@ layout: cover
 background: https://cover.sli.dev
 ---
 
-<div class="m-0">Section 4</div>
+<div class="m-0">Bonus 2</div>
 
-# Bonus: New JS features you might have missed
+# Cool new JS and TS features
+
+<!--
+Curated list of most relevant features you can use (once updated)
+
+Overall theme: refinement, makes TS smarter and work as you would expect. Add support for edge/complex cases (usage with abstract classes, getter/setter)
+-->
+
+---
+
+## Template String Type Improvements
+
+Actually you can use it today!
+
+```ts
+type VerticalPosition = "Top" | "Bottom";
+type HorizontalPosition = "Left" | "Right";
+
+// "TopLeft" | "TopRight" | "BottomLeft" | "BottomRight"
+type Position = `${VerticalPosition}${HorizontalPosition}`;
+```
+
+Compatible types
+
+```ts
+declare let s1: `${number}-${number}-${number}`;
+declare let s2: `1-2-3`;
+
+// TypeScript recognizes that s2 is compatible with s1,
+// therefore s1 can be assigned to s2's value
+s1 = s2;
+```
+
+---
+
+## The `Awaited` Type and Promise Improvements
+
+New utility type to unwrap `Promise` types.
+
+```ts
+// A = string
+type A = Awaited<Promise<string>>;
+
+// B = number
+type B = Awaited<Promise<Promise<number>>>;
+
+// C = boolean | number
+type C = Awaited<boolean | Promise<number>>;
+```
+
+---
+layout: two-cols-header
+layoutClass: gap-2
+---
+
+## Decorators
+
+Easily enhance functions and methods.
+
+::left::
+
+```ts
+class Person {
+  constructor(private name: string) {}
+
+  @loggedMethod("⚠️")
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+const p = new Person("Ron");
+p.greet();
+
+// Output:
+//
+//   ⚠️ Entering method 'greet'.
+//   Hello, my name is Ron.
+//   ⚠️ Exiting method 'greet'.
+```
+
+::right::
+
+```ts
+function loggedMethod(prefix = "LOG:") {
+  return function actualDecorator(
+    originalMethod: any,
+    context: ClassMethodDecoratorContext
+  ) {
+    const methodName = String(context.name);
+
+    function replacementMethod(this: any, ...args: any[]) {
+      console.log(`${prefix} Entering method '${methodName}'.`);
+      const result = originalMethod.call(this, ...args);
+      console.log(`${prefix} Exiting method '${methodName}'.`);
+      return result;
+    }
+
+    return replacementMethod;
+  };
+}
+```
+
+---
+layout: two-cols-header
+layoutClass: gap-4
+---
+
+## `using` Declarations and Explicit Resource Management
+
+::left::
+
+Before
+
+```ts {*|11-16|*}
+function doSomeWork() {
+  const path = ".some_temp_file";
+  const file = fs.openSync(path, "w+");
+
+  try {
+    // use file...
+
+    if (someCondition()) {
+      // do some more work...
+      return;
+    }
+  } finally {
+    // Close the file and delete it.
+    fs.closeSync(file);
+    fs.unlinkSync(path);
+  }
+}
+```
+
+::right::
+
+After
+
+```ts {*|2|*}
+function doSomeWork() {
+  using file = new TempFile(".some_temp_file");
+  // use file...
+  if (someCondition()) {
+    // do some more work...
+    return;
+  }
+}
+```
+
+```ts {*|7-10|*}
+class TempFile implements Disposable {
+  constructor(private path: string) {
+    this.handle = fs.openSync(path, "w+");
+  }
+
+  // other methods
+
+  [Symbol.dispose]() {
+    fs.closeSync(this.handle);
+    fs.unlinkSync(this.path);
+  }
+}
+```
 
 ---
 
