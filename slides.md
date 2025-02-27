@@ -7,7 +7,7 @@ transition: slide-left
 mdc: true
 ---
 
-# Let's talk about TypeScript
+# 4 reasons you want to <br /> update TypeScript
 
 Son Nguyen - SMB Engineering Dublin
 
@@ -28,9 +28,54 @@ layout: cover
 background: https://cover.sli.dev
 ---
 
-<div class="m-0">Section 1</div>
+<div class="m-0">Reason 1</div>
 
-# TypeScript usage in Centro
+# Alignment with other <br /> Centro modules
+
+---
+layout: cover
+background: https://cover.sli.dev
+---
+
+<div class="m-0">Reason 2</div>
+
+# Improved performance <br /> and code safety
+
+---
+layout: cover
+background: https://cover.sli.dev
+---
+
+<div class="m-0">Reason 3</div>
+
+# Increased developer productivity
+
+---
+layout: cover
+background: https://cover.sli.dev
+---
+
+<div class="m-0">Reason 4</div>
+
+# Better community and support
+
+---
+layout: cover
+background: https://cover.sli.dev
+---
+
+<div class="m-0">Bonus 1</div>
+
+# Common opportunities for <br /> better TypeScript usage
+
+---
+layout: cover
+background: https://cover.sli.dev
+---
+
+<div class="m-0">Bonus 2</div>
+
+# Cool new JS and TS features
 
 ---
 layout: image-right
