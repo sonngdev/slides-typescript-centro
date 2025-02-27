@@ -353,7 +353,7 @@ Overall theme: refinement, makes TS smarter and work as you would expect. Add su
 
 ---
 
-## Top level `await`
+## Top level `await` (JS)
 
 `await` can now exist outside of an `async` function (top level only).
 
@@ -381,7 +381,7 @@ setUser();
 
 ---
 
-## Private instance properties
+## Private instance properties (JS)
 
 Let's say we want to make `age` a private property.
 
@@ -442,7 +442,7 @@ person.#age; // JavaScript will throw a SyntaxError ✅
 
 ---
 
-## `Array.findLast()`, `Array.findLastIndex()`, `Array.at()`
+## `Array.findLast()`, `Array.findLastIndex()`, `Array.at()` (JS)
 
 New handy array methods.
 
@@ -460,7 +460,7 @@ array.at(-1); // 44
 
 ---
 
-## Copying Array Methods
+## Copying Array Methods (JS)
 
 Methods that return a new array instead of mutating the old one.
 
@@ -482,7 +482,7 @@ array.with(0, 42);
 
 ---
 
-## `??` operator
+## `??` operator (JS)
 
 Prevent unexpected fallback values.
 
@@ -506,7 +506,7 @@ const payload = {
 
 ---
 
-## Numeric separator
+## Numeric separator (JS)
 
 Make numbers easier to read.
 
@@ -520,7 +520,7 @@ let num2 = 1_000_000_000;
 
 ---
 
-## Deep object copy
+## Deep object copy (JS)
 
 A performant way to deep copy an object.
 
@@ -536,7 +536,7 @@ const copy2 = structuredClone(obj);
 
 ---
 
-## Template String Type Improvements
+## Template String Type Improvements (TS)
 
 Actually you can use it today!
 
@@ -561,7 +561,7 @@ s1 = s2;
 
 ---
 
-## The `Awaited` Type and Promise Improvements
+## The `Awaited` Type and Promise Improvements (TS)
 
 New utility type to unwrap `Promise` types.
 
@@ -581,7 +581,7 @@ layout: two-cols-header
 layoutClass: gap-2
 ---
 
-## Decorators
+## Decorators (TS)
 
 Easily enhance functions and methods.
 
@@ -634,7 +634,7 @@ layout: two-cols-header
 layoutClass: gap-4
 ---
 
-## `using` Declarations and Explicit Resource Management
+## `using` Declarations and Explicit Resource Management (TS)
 
 ::left::
 
