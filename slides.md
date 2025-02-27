@@ -30,22 +30,35 @@ background: /bg.jpeg
 
 <div class="m-0">Reason 1</div>
 
-# Alignment with other Centro modules
+# Alignment with Centro's recommendation
 
 ---
 layout: image-right
 image: https://cover.sli.dev
 ---
 
-Two versions are being used: <span v-mark.circle.red>4.2.3</span> (default) and <span v-mark.circle.red>5.4.5</span>
+2 versions of TS are being used: <span v-mark.circle.red>4.2.3</span> (default) and <span v-mark.circle.red>5.4.5</span>
 
-Modules are encouraged to upgrade
-
+Modules are encouraged to upgrade from June 2024:
+<br />
 ⚡ Performance gain
 <br />
 🪶 Minimal effort
 <br />
 📦 Better support for packages, e.g. Fluent UI
+
+Always good to have alignment:
+<br />
+🔮 Future-proof
+<br />
+♻️ Easier switch, better compatibility
+
+<!--
+In case anyone asks: as of 27/02/2024:
+- 436 modules in total
+- 79 modules using 5.4.5
+- 357 modules using 4.2.3
+ -->
 
 ---
 
@@ -80,6 +93,14 @@ layout: fact
 </div>
 
 ---
+layout: fact
+---
+
+Lots of new features that can improve code safety
+
+(discussed later)
+
+---
 layout: cover
 background: /bg.jpeg
 ---
@@ -87,15 +108,6 @@ background: /bg.jpeg
 <div class="m-0">Reason 3</div>
 
 # Increased developer productivity
-
----
-
-## Import Statement Completions
-
-Make importing easier in VS Code.
-
-<img src="/features-4-3-auto-import-statement.gif" alt="Visual Studio Code import auto completion" class="w-128 mx-auto">
-![Visual Studio Code import auto completion](/features-4-3-auto-import-statement.gif)
 
 ---
 
@@ -121,6 +133,18 @@ background: /bg.jpeg
 <div class="m-0">Reason 4</div>
 
 # Better community and support
+
+---
+
+**Active Community**
+
+Being on the later version means your team can benefit from the active TypeScript community, including access to the latest documentation, tutorials, and community support.
+
+<br />
+
+**Internal Support**
+
+Within your organization, there are resources and teams, such as Centro Q/A, available to assist with the upgrade process and address any issues that may arise
 
 ---
 layout: cover
