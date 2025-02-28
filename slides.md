@@ -415,7 +415,7 @@ person._age; // Still allowed ⛔
 ```ts
 class Person {
   constructor(
-    private name: string,
+    public name: string,
     private age: number
   ) {}
 }
